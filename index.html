@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Horas de Live</title>
+    <style>
+        /* Estilo para garantir que o texto apareça corretamente no OBS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-size: 36px; /* Tamanho da fonte ajustável */
+        }
+
+        #contador {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="contador">Já foram 0.0 horas de live</div>
+
+    <script>
+        const HORAS_INICIAIS = 129; // Valor inicial em horas
+        const MILISSEGUNDOS_INICIAIS = HORAS_INICIAIS * 3600 * 1000; // Converte horas para milissegundos
+
+        // Verifica se já existe uma data de início armazenada no localStorage
+        let inicioLive = localStorage.getItem('inicioLive');
+
+        // Se não houver uma data de início, define o momento atual menos o tempo inicial desejado
+        if (!inicioLive) {
+            inicioLive = new Date().getTime() - MILISSEGUNDOS_INICIAIS; // Subtrai as 129 horas iniciais
+            localStorage.setItem('inicioLive', inicioLive); // Armazena o valor no localStorage
+        } else {
+            inicioLive = parseInt(inicioLive); // Converte para número novamente
+        }
+
+        // Função para atualizar o contador de horas
+        function atualizarContador() {
+            const agora = new Date().getTime(); // Timestamp atual
+            const segundosPassados = Math.floor((agora - inicioLive) / 1000);
+            const horasPassadas = (segundosPassados / 3600).toFixed(1);
+            document.getElementById('contador').innerText = `JÁ SE FORAM ${horasPassadas} HORAS DE LIVE`;
+        }
+
+        // Atualiza o contador a cada segundo
+        setInterval(atualizarContador, 1000);
+    </script>
+</body>
+</html>
