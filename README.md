@@ -22,7 +22,7 @@ Para exibir o contador no OBS Studio, siga estas etapas:
 1. Abra o OBS e selecione a cena onde deseja adicionar o contador.
 2. Na seção **Fontes**, clique no botão **+** e selecione **Fonte de Navegador**.
 3. Dê um nome à nova fonte (por exemplo, "Contador de Horas de Live") e clique em **OK**.
-4. No campo **URL**, insira o link onde o arquivo HTML está hospedado ().
+4. No campo **URL**, insira o link onde o arquivo HTML está hospedado (https://bajona.github.io/navegador-obs-guigz/).
 5. Defina a largura e altura da fonte de navegador de acordo com a resolução desejada para o contador (por exemplo, **500x100**).
 6. Para garantir que o contador nunca reinicie quando a cena se tornar ativa, granta que a opção **Recarregar quando a cena se tornar ativa** esteja *DESMARCADA*.
 7. Clique em **OK** para adicionar a fonte ao OBS e posicione o contador na tela conforme desejado.
